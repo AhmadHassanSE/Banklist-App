@@ -225,4 +225,27 @@ btnLoan.addEventListener('click', function (e) {
   inputLoanAmount.blur();
 });
 
+// Settling close account
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (currentAccount.username == inputCloseUsername.value) {
+    if (currentAccount.pin == inputClosePin.value) {
+      const index = accounts.findIndex(checkind);
+      accounts.splice(index, 1);
+      inputClosePin.value = '';
+      inputCloseUsername.value = '';
+      inputClosePin.blur();
+      inputCloseUsername.blur();
+      containerApp.style.opacity = 0;
+      labelWelcome.textContent = 'Login to get started';
+    }
+  }
+});
+const checkind = function (curr) {
+  if (currentAccount.username == curr.username) {
+    return curr;
+  }
+};
+
+
 
